@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SimpleCommunityMessager.Models;
 using Microsoft.AspNet.Identity;
+using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
@@ -58,18 +59,26 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Subject,Message,Receiver")] Post post)
+        public ActionResult Create([Bind(Include = "Subject,Message,ReceiverUsername")] CreatePostDTO post)
         {
             if (ModelState.IsValid)
             {
+                Debug.WriteLine("Receiver: " + post.ReceiverUsername);
+                Post newPost = new Post();
+
+                newPost.Subject = post.Subject;
+                newPost.Message = post.Message;
+                newPost.Timestamp = DateTime.Now;
+                newPost.Read = false;
+                newPost.Deleted = false;
+
+                // Get ApplicationUser object of sender and receiver and add to newPost
                 var CurrentUser = db.Users.Find(User.Identity.GetUserId());
+                var receiver = db.Users.Where(u => u.UserName == "b@a.se").FirstOrDefault();
+                newPost.Sender = CurrentUser;
+                newPost.Receiver = receiver;
 
-                post.Timestamp = DateTime.Now;
-                post.Read = false;
-                post.Deleted = false;
-                post.Sender = CurrentUser;
-
-                db.Posts.Add(post);
+                db.Posts.Add(newPost);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
