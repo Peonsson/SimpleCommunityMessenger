@@ -20,7 +20,7 @@ namespace SimpleCommunityMessager.Controllers
         public ActionResult Index()
         {
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-            return View(db.Posts.Where(o => o.Receiver.Id == CurrentUser.Id).ToList());
+            return View(db.Posts.Where(o => o.Receiver.Id == CurrentUser.Id).Distinct().ToList());
         }
 
         // GET: Posts/Details/5
