@@ -5,14 +5,14 @@ namespace SimpleCommunityMessager.Models
 {
     public class Post
     {
-        public int ID { get; set; }
-        public String Subject { get; set; }
-        public String Message { get; set; }
+        public int Id { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
         public DateTime Timestamp { get; set; }
         public bool Read { get; set; }
         public bool Deleted { get; set; }
-        public ApplicationUser Sender { get; set; }
-        public ApplicationUser Receiver { get; set; }
+        public virtual ApplicationUser Sender { get; set; }
+        public virtual ApplicationUser Receiver { get; set; }
     }
 
     public class PostDBContext : DbContext
