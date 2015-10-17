@@ -49,7 +49,7 @@ namespace SimpleCommunityMessager.Controllers
 
             UserList.AddRange(UserQuery.Distinct());
 
-            ViewBag.userList = new SelectList(UserList);
+            ViewBag.Receiver = new SelectList(UserList);
 
             return View();
         }
@@ -59,11 +59,10 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Subject,Message,ReceiverUsername")] CreatePostDTO post)
+        public ActionResult Create([Bind(Include = "Subject,Message,Receiver")] CreatePostDTO post)
         {
             if (ModelState.IsValid)
             {
-                Debug.WriteLine("Receiver: " + post.ReceiverUsername);
                 Post newPost = new Post();
 
                 newPost.Subject = post.Subject;
@@ -74,7 +73,7 @@ namespace SimpleCommunityMessager.Controllers
 
                 // Get ApplicationUser object of sender and receiver and add to newPost
                 var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-                var receiver = db.Users.Where(u => u.UserName == "b@a.se").FirstOrDefault();
+                var receiver = db.Users.Where(u => u.UserName == post.Receiver).FirstOrDefault();
                 newPost.Sender = CurrentUser;
                 newPost.Receiver = receiver;
 
