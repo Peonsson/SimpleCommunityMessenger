@@ -48,6 +48,11 @@ namespace SimpleCommunityMessager.Controllers
         // GET: Posts/Create
         public ActionResult Create()
         {
+            if (TempData["successMessage"] != null)
+            {
+                ViewBag.Message = TempData["successMessage"].ToString();
+            }
+
 
             var UserList = new List<string>();
 
@@ -87,10 +92,13 @@ namespace SimpleCommunityMessager.Controllers
 
                 db.Posts.Add(newPost);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                TempData["successMessage"] = "Message has been sent to " + newPost.Receiver.UserName + " at " + newPost.Timestamp;
+
+                return RedirectToAction("Create");
             }
 
-            return View(post);
+            return View();
         }
 
         // GET: Posts/Edit/5
