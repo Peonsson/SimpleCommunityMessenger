@@ -9,6 +9,6 @@ namespace SimpleCommunityMessager.Models
     {
         public string Subject { get; set; }
         public string Message { get; set; }
-        public string ReceiverUsername { get; set; }
+        public string Receiver { get; set; }
     }
 }
