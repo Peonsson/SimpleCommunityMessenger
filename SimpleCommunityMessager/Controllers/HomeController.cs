@@ -21,7 +21,7 @@ namespace SimpleCommunityMessager.Controllers
             var posts = from p in db.Posts
                         select p;
 
-            posts = posts.Where(p => p.Id.Equals(CurrentUser));
+            posts = posts.Where(p => p.Receiver.Equals(CurrentUser));
 
             posts = posts.Where(p => p.Read.Equals(false));
 
