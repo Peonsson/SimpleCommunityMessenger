@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SimpleCommunityMessager.Models;
+using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
@@ -72,6 +73,7 @@ namespace SimpleCommunityMessager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            Debug.WriteLine("HELLLO");
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -83,11 +85,23 @@ namespace SimpleCommunityMessager.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    // Change last login date for user who logged in
+                    // Change last login date and number of logins (on current month) for user who logged in
                     using (var db = new ApplicationDbContext())
                     {
                         var User = db.Users.Where(u => u.Email == model.Email).FirstOrDefault();
+
+                        // Reset when first day of month
+                        var previousLastLogin = User.LastLogin;
+                        var firstDayOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                        if (DateTime.Compare(firstDayOfMonth, previousLastLogin) > 0)
+                        {
+                            // If previous last login was before first of this month, reset counter
+                            User.LoginCounter = 0;
+                        }
+
                         User.LastLogin = DateTime.Now;
+                        User.LoginCounter++;
+
                         db.SaveChanges();
                     }
                     return RedirectToLocal(returnUrl);
