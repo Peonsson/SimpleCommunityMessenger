@@ -1,49 +1,40 @@
-﻿@model SimpleCommunityMessager.Models.Post
+﻿@model IEnumerable<SimpleCommunityMessager.Models.Post>
 
 @{
     ViewBag.Title = "Message";
 }
 
-<h2>Message</h2>
+<h2>Messages</h2>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-
-        <dt>
-            From
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sender.UserName)
-        </dd>
-
-        <dt>
+<table class="table">
+    <tr>
+        <th>
             @Html.DisplayNameFor(model => model.Subject)
-        </dt>
+        </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject)
-        </dd>
-
-        <dt>
+        <th>
             @Html.DisplayNameFor(model => model.Timestamp)
-        </dt>
+        </th>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Timestamp)
-        </dd>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
-
-    </dl>
-</div>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

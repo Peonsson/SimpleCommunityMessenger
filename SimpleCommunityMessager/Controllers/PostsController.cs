@@ -4,11 +4,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using SimpleCommunityMessager.Models;
 using Microsoft.AspNet.Identity;
-using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
@@ -30,12 +28,21 @@ namespace SimpleCommunityMessager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+
             Post post = db.Posts.Find(id);
-            if (post == null)
-            {
-                return HttpNotFound();
-            }
-            return View(post);
+            string senderId = post.Sender.Id;
+
+
+
+            //if (post == null)
+            //{
+            //    return HttpNotFound();
+            //}
+
+            //return View(post);
+
+            return View(db.Posts.Where(o => o.Sender.Id == senderId).ToList());
         }
 
         // GET: Posts/Create
