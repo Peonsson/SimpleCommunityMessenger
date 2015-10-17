@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SimpleCommunityMessager.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SimpleCommunityMessager.Controllers
 {
@@ -38,6 +39,17 @@ namespace SimpleCommunityMessager.Controllers
         // GET: Posts/Create
         public ActionResult Create()
         {
+
+            var UserList = new List<string>();
+
+            var UserQuery = from d in db.Users
+                            orderby d.UserName
+                            select d.UserName;
+
+            UserList.AddRange(UserQuery.Distinct());
+
+            ViewBag.userList = new SelectList(UserList);
+
             return View();
         }
 
@@ -46,10 +58,17 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Subject,Message,Timestamp,Read,Deleted")] Post post)
+        public ActionResult Create([Bind(Include = "Subject,Message,Receiver")] Post post)
         {
             if (ModelState.IsValid)
             {
+                var CurrentUser = db.Users.Find(User.Identity.GetUserId());
+
+                post.Timestamp = DateTime.Now;
+                post.Read = false;
+                post.Deleted = false;
+                post.Sender = CurrentUser;
+
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -11,6 +11,7 @@ namespace SimpleCommunityMessager.Models
         public DateTime Timestamp { get; set; }
         public bool Read { get; set; }
         public bool Deleted { get; set; }
+
         public virtual ApplicationUser Sender { get; set; }
         public virtual ApplicationUser Receiver { get; set; }
     }
