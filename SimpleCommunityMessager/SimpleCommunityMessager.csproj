@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201510171625385_DontAllowNull.Designer.cs">
       <DependentUpon>201510171625385_DontAllowNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510171710516_ContextChange.cs" />
+    <Compile Include="Migrations\201510171710516_ContextChange.Designer.cs">
+      <DependentUpon>201510171710516_ContextChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510171625385_DontAllowNull.resx">
       <DependentUpon>201510171625385_DontAllowNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510171710516_ContextChange.resx">
+      <DependentUpon>201510171710516_ContextChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
