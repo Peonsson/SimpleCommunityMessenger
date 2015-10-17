@@ -177,6 +177,14 @@
     <Compile Include="Migrations\201510171558496_LastLogin.Designer.cs">
       <DependentUpon>201510171558496_LastLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510171620575_AllowNull.cs" />
+    <Compile Include="Migrations\201510171620575_AllowNull.Designer.cs">
+      <DependentUpon>201510171620575_AllowNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510171625385_DontAllowNull.cs" />
+    <Compile Include="Migrations\201510171625385_DontAllowNull.Designer.cs">
+      <DependentUpon>201510171625385_DontAllowNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -256,6 +264,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510171558496_LastLogin.resx">
       <DependentUpon>201510171558496_LastLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510171620575_AllowNull.resx">
+      <DependentUpon>201510171620575_AllowNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510171625385_DontAllowNull.resx">
+      <DependentUpon>201510171625385_DontAllowNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
