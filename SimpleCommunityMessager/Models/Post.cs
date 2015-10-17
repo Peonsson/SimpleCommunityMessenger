@@ -13,6 +13,7 @@ namespace SimpleCommunityMessager.Models
         public bool Deleted { get; set; }
         public virtual ApplicationUser Sender { get; set; }
         public virtual ApplicationUser Receiver { get; set; }
+
     }
 
     public class PostDBContext : DbContext
