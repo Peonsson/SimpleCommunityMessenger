@@ -83,6 +83,13 @@ namespace SimpleCommunityMessager.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    // Change last login date for user who logged in
+                    using (var db = new ApplicationDbContext())
+                    {
+                        var User = db.Users.Where(u => u.Email == model.Email).FirstOrDefault();
+                        User.LastLogin = DateTime.Now;
+                        db.SaveChanges();
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
