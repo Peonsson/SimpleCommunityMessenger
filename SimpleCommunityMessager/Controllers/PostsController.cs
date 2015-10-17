@@ -45,6 +45,24 @@ namespace SimpleCommunityMessager.Controllers
             return View(db.Posts.Where(o => o.Sender.Id == senderId).ToList());
         }
 
+        // GET: Posts/MessageDetails/5
+        public ActionResult MessageDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Post post = db.Posts.Find(id);
+
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(post);
+        }
+
         // GET: Posts/Create
         public ActionResult Create()
         {
