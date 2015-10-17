@@ -15,21 +15,13 @@ namespace SimpleCommunityMessager.Controllers
 
         public ActionResult Index()
         {
-
-            var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-
-            var posts = from p in db.Posts
-                        select p;
-
-            posts = posts.Where(p => p.Receiver.Equals(CurrentUser));
-
-            posts = posts.Where(p => p.Read.Equals(false));
-
             IndexDTO dto = new IndexDTO();
 
-            //dto.unreadCounter = posts.Count();
+            var CurrentUser = db.Users.Find(User.Identity.GetUserId());
+            
+            var count = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
 
-            dto.unreadCounter = 2;
+            dto.unreadCounter = count;
 
             dto.userName = CurrentUser.UserName;
 
