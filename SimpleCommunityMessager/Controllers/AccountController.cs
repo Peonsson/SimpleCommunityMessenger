@@ -81,14 +81,15 @@ namespace SimpleCommunityMessager.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
+                    Debug.WriteLine("SUCCESS");
                     // Change last login date and number of logins (on current month) for user who logged in
                     using (var db = new ApplicationDbContext())
                     {
-                        var User = db.Users.Where(u => u.Email == model.Email).FirstOrDefault();
+                        var User = db.Users.Where(u => u.UserName == model.Username).FirstOrDefault();
 
                         // Reset when first day of month
                         var previousLastLogin = User.LastLogin;
@@ -176,7 +177,7 @@ namespace SimpleCommunityMessager.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LastLogin = DateTime.Now };
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email, LastLogin = DateTime.Now };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

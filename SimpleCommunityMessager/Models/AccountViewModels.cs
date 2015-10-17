@@ -49,9 +49,8 @@ namespace SimpleCommunityMessager.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,6 +63,11 @@ namespace SimpleCommunityMessager.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "The {0} must be at least {1} characters long")]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
