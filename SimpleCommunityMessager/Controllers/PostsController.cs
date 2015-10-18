@@ -22,7 +22,7 @@ namespace SimpleCommunityMessager.Controllers
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
             UserPostsDTO dto = new UserPostsDTO();
 
-            dto.usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.UserName).Distinct().ToList();
+            dto.usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id && p.Deleted == false).Select(p => p.Sender.UserName).Distinct().ToList();
 
             dto.totalMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
 
@@ -46,7 +46,7 @@ namespace SimpleCommunityMessager.Controllers
         
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
 
-            List<Post> posts = db.Posts.Where(p => p.Sender.UserName == username && p.Receiver.Id == CurrentUser.Id).ToList();
+            List<Post> posts = db.Posts.Where(p => p.Sender.UserName == username && p.Receiver.Id == CurrentUser.Id && p.Deleted == false).ToList();
 
             foreach(var item in posts)
             {
