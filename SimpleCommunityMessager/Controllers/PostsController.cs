@@ -26,7 +26,7 @@ namespace SimpleCommunityMessager.Controllers
 
             dto.totalMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
 
-            dto.unreadMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == false);
+            dto.unreadMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == true);
 
             dto.deletedMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Deleted == true);
 
