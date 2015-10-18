@@ -199,6 +199,7 @@ namespace SimpleCommunityMessager.Controllers
 
             //db.Posts.Remove(post);
 
+            post.Read = true;
             post.Deleted = true;
             db.SaveChanges();
 

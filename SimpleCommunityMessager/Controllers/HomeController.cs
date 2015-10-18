@@ -19,7 +19,7 @@ namespace SimpleCommunityMessager.Controllers
 
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
             
-            var count = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
+            var count = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == false);
 
             dto.unreadCounter = count;
 
