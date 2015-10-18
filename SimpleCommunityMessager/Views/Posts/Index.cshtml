@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SimpleCommunityMessager.Models.Post>
+﻿@model IEnumerable<SimpleCommunityMessager.Models.UserPostsDTO>
 
 @{
     ViewBag.Title = "Read";
@@ -16,7 +16,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Sender.UserName)
+            @Html.DisplayFor(modelItem => item.u)
         </td>
 
         <td>

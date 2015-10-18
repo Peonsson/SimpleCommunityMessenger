@@ -21,10 +21,18 @@ namespace SimpleCommunityMessager.Controllers
         {
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
             // TODO: FIX THIS, CAN'T SEND LIST OF POSTS, MUST BE LIST OF POST DTO'S
-            var posts = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Distinct().ToList();
+            //var posts = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Distinct().ToList();
+            var usersWhoPosted = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.Id).Distinct().ToList();
 
-            Debug.WriteLine("Returning to Post index...");
-            return View(posts);
+            List<UserPostsDTO> userPostsDTO = new List<UserPostsDTO>();
+
+            foreach (var item in usersWhoPosted)
+            {
+                
+            }
+
+
+            return View(usersWhoPosted);
         }
 
         // GET: Posts/Details/5
