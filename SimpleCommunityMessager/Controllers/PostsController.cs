@@ -75,7 +75,17 @@ namespace SimpleCommunityMessager.Controllers
                 return HttpNotFound();
             }
 
-            return View(post);
+            post.Read = true;
+
+            // Create view model
+            ReadPostDTO readPostDTO = new ReadPostDTO();
+            readPostDTO.Id = post.Id;
+            readPostDTO.Subject = post.Subject;
+            readPostDTO.Timestamp = post.Timestamp;
+            readPostDTO.Message = post.Message;
+
+            db.SaveChanges();
+            return View(readPostDTO);
         }
 
         // GET: Posts/Create

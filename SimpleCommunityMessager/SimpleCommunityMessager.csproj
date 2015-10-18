@@ -197,6 +197,7 @@
     <Compile Include="Models\IndexDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\ReadPostDTO.cs" />
     <Compile Include="Models\ReadPostsFromUserDTO.cs" />
     <Compile Include="Models\UserPostsDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
