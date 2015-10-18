@@ -24,6 +24,8 @@ namespace SimpleCommunityMessager.Controllers
             List<string> usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.UserName).Distinct().ToList();
             List<UserPostsDTO> dtoList = new List<UserPostsDTO>();
 
+
+
             foreach (var username in usernames)
             {
                 UserPostsDTO dto = new UserPostsDTO();
@@ -42,17 +44,22 @@ namespace SimpleCommunityMessager.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            List<ReadPostsFromUserDTO> dtoList = new List<ReadPostsFromUserDTO>();
+        
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
+
             List<Post> posts = db.Posts.Where(p => p.Sender.UserName == username && p.Receiver.Id == CurrentUser.Id).ToList();
 
-            //if (post == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            foreach(var item in posts)
+            {
+                ReadPostsFromUserDTO dto = new ReadPostsFromUserDTO();
+                dto.Timestamp = item.Timestamp;
+                dto.Subject = item.Subject;
+                dto.Id = item.Id;
+                dtoList.Add(dto);
+            }
 
-            //return View(post);
-
-            return View(posts);
+            return View(dtoList);
         }
 
         // GET: Posts/MessageDetails/5

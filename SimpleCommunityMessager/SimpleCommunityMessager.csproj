@@ -194,9 +194,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CreatePostDTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\IndexDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\ReadPostsFromUserDTO.cs" />
     <Compile Include="Models\UserPostsDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

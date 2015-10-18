@@ -20,8 +20,36 @@
         </td>
 
         <td>
-            @Html.ActionLink("Details", "Details", new { id = item.username })
+            @Html.ActionLink("Details", "Details", new { username = item.username })
         </td>
     </tr>
 }
 </table>
+
+<table class="table">
+    <tr>
+        <th>
+            Totala antal meddelanden
+        </th>
+        <th>
+            Totala olästa meddelanden
+        </th>
+        <th>
+            Totala borttagna meddelanden
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.)
+            </td>
+
+            <td>
+                @Html.ActionLink("Details", "Details", new { username = item.username })
+            </td>
+        </tr>
+    }
+</table>
+
