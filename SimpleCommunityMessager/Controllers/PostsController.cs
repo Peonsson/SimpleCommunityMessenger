@@ -79,7 +79,7 @@ namespace SimpleCommunityMessager.Controllers
             if (TempData["successMessage"] != null)
             {
                 // If there was a message in TempData, put message in viewbag
-                ViewBag.Message = TempData["successMessage"].ToString();
+                ViewBag.SuccessMessage = TempData["successMessage"].ToString();
             }
 
             return View();
