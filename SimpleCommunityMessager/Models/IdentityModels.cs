@@ -25,10 +25,12 @@ namespace SimpleCommunityMessager.Models
         public int LoginCounter { get; set; }
 
         // Navigation property
+        public virtual ICollection<Group> Groups { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
 
         public ApplicationUser()
         {
+            Groups = new List<Group>();
             Posts = new List<Post>();
         }
     }
@@ -46,5 +48,6 @@ namespace SimpleCommunityMessager.Models
         }
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Group> Groups { get; set; }
     }
 }
