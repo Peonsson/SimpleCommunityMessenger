@@ -22,32 +22,31 @@ namespace SimpleCommunityMessager.Controllers
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
             // TODO: FIX THIS, CAN'T SEND LIST OF POSTS, MUST BE LIST OF POST DTO'S
             //var posts = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Distinct().ToList();
-            var usersWhoPosted = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.Id).Distinct().ToList();
 
-            List<UserPostsDTO> userPostsDTO = new List<UserPostsDTO>();
+            List<string> senderIds = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.Id).Distinct().ToList();
 
-            foreach (var item in usersWhoPosted)
+            List<UserPostsDTO> dtoList = new List<UserPostsDTO>();
+            foreach (var item in senderIds)
             {
-                
+                UserPostsDTO dto = new UserPostsDTO();
+                dto.username = db.Users.Where(u => u.Id == item).Select(p => p.UserName).FirstOrDefault();
+                dto.userId = item;
+                dtoList.Add(dto);
             }
 
-
-            return View(usersWhoPosted);
+            return View(dtoList);
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-
-            Post post = db.Posts.Find(id);
-            string senderId = post.Sender.Id;
-
-
+            var CurrentUser = db.Users.Find(User.Identity.GetUserId());
+            List<Post> posts = db.Posts.Where(p => p.Sender.Id == id && p.Receiver.Id == CurrentUser.Id).ToList();
 
             //if (post == null)
             //{
@@ -56,7 +55,7 @@ namespace SimpleCommunityMessager.Controllers
 
             //return View(post);
 
-            return View(db.Posts.Where(o => o.Sender.Id == senderId).ToList());
+            return View(posts);
         }
 
         // GET: Posts/MessageDetails/5
