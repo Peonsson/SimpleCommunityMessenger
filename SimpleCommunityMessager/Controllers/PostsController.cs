@@ -20,20 +20,18 @@ namespace SimpleCommunityMessager.Controllers
         public ActionResult Index()
         {
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
+            UserPostsDTO dto = new UserPostsDTO();
 
-            List<string> usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.UserName).Distinct().ToList();
-            List<UserPostsDTO> dtoList = new List<UserPostsDTO>();
+            dto.usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.UserName).Distinct().ToList();
 
+            dto.totalMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
 
+            dto.unreadMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == false);
 
-            foreach (var username in usernames)
-            {
-                UserPostsDTO dto = new UserPostsDTO();
-                dto.username = username;
-                dtoList.Add(dto);
-            }
+            dto.deletedMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Deleted == false);
 
-            return View(dtoList);
+            return View(dto);
+
         }
 
         // GET: Posts/Details/5

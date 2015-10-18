@@ -8,18 +8,13 @@ namespace SimpleCommunityMessager.Models
 {
     public class UserPostsDTO
     {
-        public string username { get; set; }
+        public List<string> usernames { get; set; }
 
-        [Display(Name = "No. unread messages")]
-        public int unreadCounter { get; set; }
+        public int totalMessages { get; set; }
 
-        [Display(Name = "Username")]
-        public string userName { get; set; }
+        public int unreadMessages { get; set; }
 
-        [Display(Name = "Last login date")]
-        public DateTime lastLogin { get; set; }
+        public int deletedMessages { get; set; }
 
-        [Display(Name = "No. times user have logged in")]
-        public int loginCounter { get; set; }
     }
 }

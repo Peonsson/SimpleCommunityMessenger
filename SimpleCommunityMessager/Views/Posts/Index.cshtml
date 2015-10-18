@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SimpleCommunityMessager.Models.UserPostsDTO>
+﻿@model SimpleCommunityMessager.Models.UserPostsDTO
 
 @{
     ViewBag.Title = "Read";
@@ -13,43 +13,25 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.usernames) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.username)
+            @Html.DisplayFor(modelItem => item)
         </td>
 
         <td>
-            @Html.ActionLink("Details", "Details", new { username = item.username })
+            @Html.ActionLink("Details", "Details", new { username = item })
         </td>
     </tr>
 }
 </table>
 
-<table class="table">
-    <tr>
-        <th>
-            Totala antal meddelanden
-        </th>
-        <th>
-            Totala olästa meddelanden
-        </th>
-        <th>
-            Totala borttagna meddelanden
-        </th>
-    </tr>
+<div>
+    <p>
+        <b>Total messages:</b> @Model.totalMessages <br />
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.)
-            </td>
+        <b>Total unread messages:</b> @Model.unreadMessages<br />
 
-            <td>
-                @Html.ActionLink("Details", "Details", new { username = item.username })
-            </td>
-        </tr>
-    }
-</table>
-
+        <b>Total deleted messages:</b> @Model.deletedMessages<br />
+    </p>
+</div>
