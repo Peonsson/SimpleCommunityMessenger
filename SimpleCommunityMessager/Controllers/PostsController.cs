@@ -67,12 +67,6 @@ namespace SimpleCommunityMessager.Controllers
         // GET: Posts/Create
         public ActionResult Create()
         {
-            if (TempData["successMessage"] != null)
-            {
-                ViewBag.Message = TempData["successMessage"].ToString();
-            }
-
-
             var UserList = new List<string>();
 
             var UserQuery = from d in db.Users
@@ -80,8 +74,13 @@ namespace SimpleCommunityMessager.Controllers
                             select d.UserName;
 
             UserList.AddRange(UserQuery.Distinct());
-
             ViewBag.Receiver = new SelectList(UserList);
+
+            if (TempData["successMessage"] != null)
+            {
+                // If there was a message in TempData, put message in viewbag
+                ViewBag.Message = TempData["successMessage"].ToString();
+            }
 
             return View();
         }
@@ -112,7 +111,8 @@ namespace SimpleCommunityMessager.Controllers
                 db.Posts.Add(newPost);
                 db.SaveChanges();
 
-                TempData["successMessage"] = "Message has been sent to " + newPost.Receiver.UserName + " at " + newPost.Timestamp;
+                // Put a message in TempData so the GET method of Create can put the message in the viewbag for the view
+                TempData["successMessage"] = "Message was sent to " + newPost.Receiver.UserName + " at " + newPost.Timestamp;
 
                 return RedirectToAction("Create");
             }
