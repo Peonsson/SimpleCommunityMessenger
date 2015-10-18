@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace SimpleCommunityMessager.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
