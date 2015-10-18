@@ -38,9 +38,15 @@ namespace SimpleCommunityMessager.Controllers
         }
 
         // GET: MulticastPosts/Create
-        public ActionResult Create(int id)
+        public ActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             ViewBag.GroupId = id;
+
             return View();
         }
 
@@ -69,7 +75,7 @@ namespace SimpleCommunityMessager.Controllers
 
                 db.MulticastPosts.Add(newPost);
                 db.SaveChanges();
-                return RedirectToAction("Details/" + newPost.Group.Id, "Groups");
+                return RedirectToAction("Details/" + newMcp.ReceiverGroup, "Groups");
             }
 
             return View(newMcp);

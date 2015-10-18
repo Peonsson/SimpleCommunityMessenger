@@ -45,7 +45,7 @@ namespace SimpleCommunityMessager.Controllers
             GroupDetailsDTO dto = new GroupDetailsDTO();
             dto.Id = (int) id;
 
-            List<MulticastPost> mcp = db.MulticastPosts.Where(p => p.Id == id).ToList();
+            List<MulticastPost> mcp = db.MulticastPosts.Where(p => p.Group.Id == id).ToList();
 
 
             List<GroupDetailMessagesDTO> dtoList = new List<GroupDetailMessagesDTO>();
@@ -148,7 +148,7 @@ namespace SimpleCommunityMessager.Controllers
             db.GroupUsers.Add(newGroupUser);
             db.SaveChanges();
 
-            return View(group);
+            return RedirectToAction("Index");
         }
 
         // POST: Groups/Join/5
@@ -196,7 +196,7 @@ namespace SimpleCommunityMessager.Controllers
                 return RedirectToAction("Index");
             }
             
-            return View(group);
+            return RedirectToAction("Index");
         }
 
         // POST: Groups/Leave/5
