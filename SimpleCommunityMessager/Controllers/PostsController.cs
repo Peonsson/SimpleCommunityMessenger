@@ -28,7 +28,7 @@ namespace SimpleCommunityMessager.Controllers
 
             dto.unreadMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == false);
 
-            dto.deletedMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Deleted == false);
+            dto.deletedMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Deleted == true);
 
             return View(dto);
 
@@ -186,8 +186,12 @@ namespace SimpleCommunityMessager.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);
-            db.Posts.Remove(post);
+
+            //db.Posts.Remove(post);
+
+            post.Deleted = true;
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
