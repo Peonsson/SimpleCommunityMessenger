@@ -7,6 +7,7 @@ using System.Net;
 using System.Web.Mvc;
 using SimpleCommunityMessager.Models;
 using Microsoft.AspNet.Identity;
+using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
@@ -19,7 +20,11 @@ namespace SimpleCommunityMessager.Controllers
         public ActionResult Index()
         {
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-            return View(db.Posts.Where(o => o.Receiver.Id == CurrentUser.Id).Distinct().ToList());
+            // TODO: FIX THIS, CAN'T SEND LIST OF POSTS, MUST BE LIST OF POST DTO'S
+            var posts = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Distinct().ToList();
+
+            Debug.WriteLine("Returning to Post index...");
+            return View(posts);
         }
 
         // GET: Posts/Details/5
