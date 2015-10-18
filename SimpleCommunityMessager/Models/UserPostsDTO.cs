@@ -8,6 +8,5 @@ namespace SimpleCommunityMessager.Models
     public class UserPostsDTO
     {
         public string username { get; set; }
-        public string userId { get; set; }
     }
 }

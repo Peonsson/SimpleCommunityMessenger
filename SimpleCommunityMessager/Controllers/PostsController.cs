@@ -20,17 +20,14 @@ namespace SimpleCommunityMessager.Controllers
         public ActionResult Index()
         {
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-            // TODO: FIX THIS, CAN'T SEND LIST OF POSTS, MUST BE LIST OF POST DTO'S
-            //var posts = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Distinct().ToList();
 
-            List<string> senderIds = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.Id).Distinct().ToList();
-
+            List<string> usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id).Select(p => p.Sender.UserName).Distinct().ToList();
             List<UserPostsDTO> dtoList = new List<UserPostsDTO>();
-            foreach (var item in senderIds)
+
+            foreach (var username in usernames)
             {
                 UserPostsDTO dto = new UserPostsDTO();
-                dto.username = db.Users.Where(u => u.Id == item).Select(p => p.UserName).FirstOrDefault();
-                dto.userId = item;
+                dto.username = username;
                 dtoList.Add(dto);
             }
 
@@ -38,15 +35,15 @@ namespace SimpleCommunityMessager.Controllers
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(string username)
         {
-            if (id == null)
+            if (username == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-            List<Post> posts = db.Posts.Where(p => p.Sender.Id == id && p.Receiver.Id == CurrentUser.Id).ToList();
+            List<Post> posts = db.Posts.Where(p => p.Sender.UserName == username && p.Receiver.Id == CurrentUser.Id).ToList();
 
             //if (post == null)
             //{
