@@ -140,13 +140,19 @@ namespace SimpleCommunityMessager.Controllers
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
             var GroupToJoin = db.Groups.Find(id);
 
+            // Create group user
             var newGroupUser = new GroupUser();
-
             newGroupUser.Group = GroupToJoin;
             newGroupUser.User = CurrentUser;
 
-            db.GroupUsers.Add(newGroupUser);
-            db.SaveChanges();
+            var foundGroupUser = db.GroupUsers.Where(g => g.User.Id == newGroupUser.User.Id && g.Group.Id == newGroupUser.Group.Id).FirstOrDefault();
+
+            if (foundGroupUser == null)
+            {
+                // User-group relationship didn't already exists, add new
+                db.GroupUsers.Add(newGroupUser);
+                db.SaveChanges();
+            }
 
             return RedirectToAction("Index");
         }

@@ -34,7 +34,15 @@ namespace SimpleCommunityMessager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(multicastPost);
+
+            // Create view model
+            ReadMulticastPostDTO post = new ReadMulticastPostDTO();
+            post.Id = multicastPost.Id;
+            post.Subject = multicastPost.Subject;
+            post.Timestamp = multicastPost.Timestamp;
+            post.Message = multicastPost.Message;
+
+            return View(post);
         }
 
         // GET: MulticastPosts/Create

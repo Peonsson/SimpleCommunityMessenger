@@ -230,6 +230,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MulticastPost.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\ReadMulticastPostDTO.cs" />
     <Compile Include="Models\ReadPostDTO.cs" />
     <Compile Include="Models\ReadPostsFromUserDTO.cs" />
     <Compile Include="Models\UserPostsDTO.cs" />
