@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
@@ -190,13 +191,28 @@
     <Compile Include="Migrations\201510171710516_ContextChange.Designer.cs">
       <DependentUpon>201510171710516_ContextChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510181741422_Groups.cs" />
+    <Compile Include="Migrations\201510181741422_Groups.Designer.cs">
+      <DependentUpon>201510181741422_Groups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510181744332_Groups2.cs" />
+    <Compile Include="Migrations\201510181744332_Groups2.Designer.cs">
+      <DependentUpon>201510181744332_Groups2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510181751461_Groups3.cs" />
+    <Compile Include="Migrations\201510181751461_Groups3.Designer.cs">
+      <DependentUpon>201510181751461_Groups3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CreatePostDTO.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\ReadPostDTO.cs" />
     <Compile Include="Models\ReadPostsFromUserDTO.cs" />
     <Compile Include="Models\UserPostsDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -263,6 +279,11 @@
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\Posts\MessageDetails.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Details.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +308,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510171710516_ContextChange.resx">
       <DependentUpon>201510171710516_ContextChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510181741422_Groups.resx">
+      <DependentUpon>201510181741422_Groups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510181744332_Groups2.resx">
+      <DependentUpon>201510181744332_Groups2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510181751461_Groups3.resx">
+      <DependentUpon>201510181751461_Groups3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
