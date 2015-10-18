@@ -1,26 +1,43 @@
-﻿@model SimpleCommunityMessager.Models.Group
+﻿@model SimpleCommunityMessager.Models.GroupDetailsDTO
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Messages";
 }
 
-<h2>Details</h2>
+<h2>Messages</h2>
+
+<p>
+    @Html.ActionLink("New message", "Create", "MulticastPosts")
+</p>
+
 
 <div>
-    <h4>Group</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <table class="table">
+        <tr>
+            <th>
+                Subject
+            </th>
+            <th>
+                Timestamp
+            </th>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-    </dl>
+        @foreach (var item in Model.messages)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timestamp)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

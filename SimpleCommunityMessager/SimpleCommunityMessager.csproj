@@ -171,6 +171,7 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MulticastPostsController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -203,14 +204,31 @@
     <Compile Include="Migrations\201510181751461_Groups3.Designer.cs">
       <DependentUpon>201510181751461_Groups3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510181835409_dance.cs" />
+    <Compile Include="Migrations\201510181835409_dance.Designer.cs">
+      <DependentUpon>201510181835409_dance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510181938189_Strength.cs" />
+    <Compile Include="Migrations\201510181938189_Strength.Designer.cs">
+      <DependentUpon>201510181938189_Strength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510181953175_Strength213.cs" />
+    <Compile Include="Migrations\201510181953175_Strength213.Designer.cs">
+      <DependentUpon>201510181953175_Strength213.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CreateMulticastPostDTO.cs" />
     <Compile Include="Models\CreatePostDTO.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupDetailMessagesDTO.cs" />
+    <Compile Include="Models\GroupDetailsDTO.cs" />
+    <Compile Include="Models\GroupDTO.cs" />
     <Compile Include="Models\GroupUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MulticastPost.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\ReadPostDTO.cs" />
     <Compile Include="Models\ReadPostsFromUserDTO.cs" />
@@ -284,6 +302,11 @@
     <Content Include="Views\Groups\Details.cshtml" />
     <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
+    <Content Include="Views\MulticastPosts\Create.cshtml" />
+    <Content Include="Views\MulticastPosts\Delete.cshtml" />
+    <Content Include="Views\MulticastPosts\Details.cshtml" />
+    <Content Include="Views\MulticastPosts\Edit.cshtml" />
+    <Content Include="Views\MulticastPosts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,6 +340,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510181751461_Groups3.resx">
       <DependentUpon>201510181751461_Groups3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510181835409_dance.resx">
+      <DependentUpon>201510181835409_dance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510181938189_Strength.resx">
+      <DependentUpon>201510181938189_Strength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510181953175_Strength213.resx">
+      <DependentUpon>201510181953175_Strength213.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,12 +26,17 @@ namespace SimpleCommunityMessager.Models
 
         // Navigation property
         public virtual ICollection<Group> Groups { get; set; }
+        public virtual ICollection<GroupUser> GroupUser { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<MulticastPost> MulticastPosts { get; set; }
+
 
         public ApplicationUser()
         {
             Groups = new List<Group>();
+            GroupUser = new List<GroupUser>();
             Posts = new List<Post>();
+            MulticastPosts = new List<MulticastPost>();
         }
     }
 
@@ -49,5 +54,8 @@ namespace SimpleCommunityMessager.Models
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<GroupUser> GroupUsers { get; set; }
+        public DbSet<MulticastPost> MulticastPosts { get; set; }
+
     }
 }
