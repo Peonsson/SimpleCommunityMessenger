@@ -20,14 +20,30 @@ namespace SimpleCommunityMessager.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-            List<Group> groups = db.Groups.ToList();
+
+            var currentUser = db.Users.Find(User.Identity.GetUserId());
+
+            List<Group> groupList = db.Groups.ToList();
+            List<GroupUser> groupUserlist = db.GroupUsers.Where(g => g.User.Id == currentUser.Id).ToList();
             List<GroupDTO> groupsDTO = new List<GroupDTO>();
 
-            foreach(var item in groups)
+            foreach (var item in groupList) //för alla grupper 
             {
+
                 GroupDTO dto = new GroupDTO();
+                dto.Member = false;
                 dto.Id = item.Id;
                 dto.Name = item.Name;
+
+                foreach (var item2 in groupUserlist) //om vi är med i gruppen
+                {
+                    if (item.Id.Equals(item2.Group.Id))
+                    {
+
+                        dto.Member = true;
+
+                    }
+                }
                 groupsDTO.Add(dto);
             }
 

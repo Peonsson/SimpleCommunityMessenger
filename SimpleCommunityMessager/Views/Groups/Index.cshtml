@@ -14,7 +14,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th></th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Member)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -23,9 +26,19 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Join", "Join", new { id=item.Id }) |
-            @Html.ActionLink("Messages", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Leave", "Leave", new { id=item.Id })
+            @item.Member
+        </td>
+        <td>
+            @if (item.Member == true)
+            {
+                @Html.ActionLink("Messages", "Details", new { id = item.Id })
+                <text> | </text>
+                @Html.ActionLink("Leave", "Leave", new { id = item.Id });
+            }
+            else
+            {
+                @Html.ActionLink("Join", "Join", new { id = item.Id });
+            }
         </td>
     </tr>
 }
