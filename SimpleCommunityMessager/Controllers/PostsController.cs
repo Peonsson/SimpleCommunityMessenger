@@ -156,7 +156,7 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateMulticast([Bind(Include = "Subject,Message,Receivers")] MulticastPostDTO post)
+        public ActionResult CreateMulticast([Bind(Include = "Subject,Message,Receivers")] CreateNewMulticastPostViewModel post)
         {
             if (ModelState.IsValid)
             {

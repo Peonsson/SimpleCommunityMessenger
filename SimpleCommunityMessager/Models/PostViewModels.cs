@@ -38,4 +38,12 @@ namespace SimpleCommunityMessager.Models
         public string Message { get; set; }
         public DateTime Timestamp { get; set; }
     }
+
+    // Create a new multicast post
+    public class CreateNewMulticastPostViewModel
+    {
+        public string Subject { get; set; }
+        public string Message { get; set; }
+        public string Receivers { get; set; }
+    }
 }

@@ -229,7 +229,6 @@
     <Compile Include="Models\GroupViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MulticastPostDTO.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,8 +266,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -301,11 +298,6 @@
     <Content Include="Views\Groups\Details.cshtml" />
     <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
-    <Content Include="Views\MulticastPosts\Create.cshtml" />
-    <Content Include="Views\MulticastPosts\Delete.cshtml" />
-    <Content Include="Views\MulticastPosts\Details.cshtml" />
-    <Content Include="Views\MulticastPosts\Edit.cshtml" />
-    <Content Include="Views\MulticastPosts\Index.cshtml" />
     <Content Include="Views\Posts\CreateMulticast.cshtml" />
     <Content Include="Views\GroupMessages\Create.cshtml" />
     <Content Include="Views\GroupMessages\Delete.cshtml" />
