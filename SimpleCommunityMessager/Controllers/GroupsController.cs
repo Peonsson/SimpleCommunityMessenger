@@ -20,14 +20,30 @@ namespace SimpleCommunityMessager.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-            List<Group> groups = db.Groups.ToList();
-            List<GroupListViewModel> groupsDTO = new List<GroupListViewModel>();
 
-            foreach(var item in groups)
+            var currentUser = db.Users.Find(User.Identity.GetUserId());
+
+            List<Group> groupList = db.Groups.ToList();
+            List<GroupUser> groupUserlist = db.GroupUsers.Where(g => g.User.Id == currentUser.Id).ToList();
+            List<GroupDTO> groupsDTO = new List<GroupDTO>();
+
+            foreach (var item in groupList) //för alla grupper 
             {
-                GroupListViewModel dto = new GroupListViewModel();
+
+                GroupDTO dto = new GroupDTO();
+                dto.Member = false;
                 dto.Id = item.Id;
                 dto.Name = item.Name;
+
+                foreach (var item2 in groupUserlist) //om vi är med i gruppen
+                {
+                    if (item.Id.Equals(item2.Group.Id))
+                    {
+
+                        dto.Member = true;
+
+                    }
+                }
                 groupsDTO.Add(dto);
             }
 
@@ -42,16 +58,16 @@ namespace SimpleCommunityMessager.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            ReceivedGroupPostSummaryViewModel dto = new ReceivedGroupPostSummaryViewModel();
+            GroupDetailsDTO dto = new GroupDetailsDTO();
             dto.Id = (int) id;
 
-            List<GroupMessage> mcp = db.GroupMessages.Where(p => p.Group.Id == id).ToList();
+            List<MulticastPost> mcp = db.MulticastPosts.Where(p => p.Group.Id == id).ToList();
 
 
-            List<ReceivedGroupPostBriefViewModel> dtoList = new List<ReceivedGroupPostBriefViewModel>();
-            foreach (GroupMessage item in mcp)
+            List<GroupDetailMessagesDTO> dtoList = new List<GroupDetailMessagesDTO>();
+            foreach (MulticastPost item in mcp)
             {
-                ReceivedGroupPostBriefViewModel messageDetails = new ReceivedGroupPostBriefViewModel();
+                GroupDetailMessagesDTO messageDetails = new GroupDetailMessagesDTO();
 
                 messageDetails.Id = item.Id;
                 messageDetails.Subject = item.Subject;
