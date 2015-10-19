@@ -15,19 +15,19 @@ namespace SimpleCommunityMessager.Controllers
 
         public ActionResult Index()
         {
-            IndexDTO dto = new IndexDTO();
+            AccountSummaryViewModel dto = new AccountSummaryViewModel();
 
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
             
             var count = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == false);
 
-            dto.unreadCounter = count;
+            dto.UnreadCounter = count;
 
-            dto.userName = CurrentUser.UserName;
+            dto.Username = CurrentUser.UserName;
 
-            dto.lastLogin = CurrentUser.LastLogin;
+            dto.LastLogin = CurrentUser.LastLogin;
 
-            dto.loginCounter = CurrentUser.LoginCounter;
+            dto.LoginCounter = CurrentUser.LoginCounter;
 
             return View(dto);
         }

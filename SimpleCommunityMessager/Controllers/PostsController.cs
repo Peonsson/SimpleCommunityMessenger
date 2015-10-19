@@ -20,15 +20,15 @@ namespace SimpleCommunityMessager.Controllers
         public ActionResult Index()
         {
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-            UserPostsDTO dto = new UserPostsDTO();
+            ReceivedPostsOverviewViewModel dto = new ReceivedPostsOverviewViewModel();
 
-            dto.usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id && p.Deleted == false).Select(p => p.Sender.UserName).Distinct().ToList();
+            dto.Usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id && p.Deleted == false).Select(p => p.Sender.UserName).Distinct().ToList();
 
-            dto.totalMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
+            dto.TotalMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
 
-            dto.unreadMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == true);
+            dto.ReadMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == true);
 
-            dto.deletedMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Deleted == true);
+            dto.DeletedMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Deleted == true);
 
             return View(dto);
 
@@ -42,7 +42,7 @@ namespace SimpleCommunityMessager.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            List<ReadPostsFromUserDTO> dtoList = new List<ReadPostsFromUserDTO>();
+            List<ReceivedPostSummaryViewModel> dtoList = new List<ReceivedPostSummaryViewModel>();
         
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
 
@@ -50,7 +50,7 @@ namespace SimpleCommunityMessager.Controllers
 
             foreach(var item in posts)
             {
-                ReadPostsFromUserDTO dto = new ReadPostsFromUserDTO();
+                ReceivedPostSummaryViewModel dto = new ReceivedPostSummaryViewModel();
                 dto.Timestamp = item.Timestamp;
                 dto.Subject = item.Subject;
                 dto.Id = item.Id;
@@ -78,7 +78,7 @@ namespace SimpleCommunityMessager.Controllers
             post.Read = true;
 
             // Create view model
-            ReadPostDTO readPostDTO = new ReadPostDTO();
+            ReceivedPostDetailsViewModel readPostDTO = new ReceivedPostDetailsViewModel();
             readPostDTO.Id = post.Id;
             readPostDTO.Subject = post.Subject;
             readPostDTO.Timestamp = post.Timestamp;
@@ -114,7 +114,7 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Subject,Message,Receiver")] CreatePostDTO post)
+        public ActionResult Create([Bind(Include = "Subject,Message,Receiver")] CreateNewPostViewModel post)
         {
             if (ModelState.IsValid)
             {

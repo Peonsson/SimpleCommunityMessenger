@@ -1,8 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SimpleCommunityMessager.Models
 {
+    public class AccountSummaryViewModel
+    {
+        [Display(Name = "No. unread messages")]
+        public int UnreadCounter { get; set; }
+
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Display(Name = "Last login date")]
+        public DateTime LastLogin { get; set; }
+
+        [Display(Name = "No. times user have logged in")]
+        public int LoginCounter { get; set; }
+    }
+
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]

@@ -28,7 +28,7 @@ namespace SimpleCommunityMessager.Models
         public virtual ICollection<Group> Groups { get; set; }
         public virtual ICollection<GroupUser> GroupUser { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
-        public virtual ICollection<MulticastPost> MulticastPosts { get; set; }
+        public virtual ICollection<GroupMessage> GroupMessages { get; set; }
 
 
         public ApplicationUser()
@@ -36,7 +36,7 @@ namespace SimpleCommunityMessager.Models
             Groups = new List<Group>();
             GroupUser = new List<GroupUser>();
             Posts = new List<Post>();
-            MulticastPosts = new List<MulticastPost>();
+            GroupMessages = new List<GroupMessage>();
         }
     }
 
@@ -55,7 +55,6 @@ namespace SimpleCommunityMessager.Models
         public DbSet<Post> Posts { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<GroupUser> GroupUsers { get; set; }
-        public DbSet<MulticastPost> MulticastPosts { get; set; }
-
+        public DbSet<GroupMessage> GroupMessages { get; set; }
     }
 }

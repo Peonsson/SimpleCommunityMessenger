@@ -216,24 +216,21 @@
     <Compile Include="Migrations\201510181953175_Strength213.Designer.cs">
       <DependentUpon>201510181953175_Strength213.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510191829016_brick.cs" />
+    <Compile Include="Migrations\201510191829016_brick.Designer.cs">
+      <DependentUpon>201510191829016_brick.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CreateMulticastPostDTO.cs" />
-    <Compile Include="Models\CreatePostDTO.cs" />
     <Compile Include="Models\Group.cs" />
-    <Compile Include="Models\GroupDetailMessagesDTO.cs" />
-    <Compile Include="Models\GroupDetailsDTO.cs" />
-    <Compile Include="Models\GroupDTO.cs" />
+    <Compile Include="Models\GroupMessageViewModels.cs" />
     <Compile Include="Models\GroupUser.cs" />
+    <Compile Include="Models\GroupViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\IndexDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MulticastPost.cs" />
+    <Compile Include="Models\GroupMessage.cs" />
     <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\ReadMulticastPostDTO.cs" />
-    <Compile Include="Models\ReadPostDTO.cs" />
-    <Compile Include="Models\ReadPostsFromUserDTO.cs" />
-    <Compile Include="Models\UserPostsDTO.cs" />
+    <Compile Include="Models\PostViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -303,11 +300,11 @@
     <Content Include="Views\Groups\Details.cshtml" />
     <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
-    <Content Include="Views\MulticastPosts\Create.cshtml" />
-    <Content Include="Views\MulticastPosts\Delete.cshtml" />
-    <Content Include="Views\MulticastPosts\Details.cshtml" />
-    <Content Include="Views\MulticastPosts\Edit.cshtml" />
-    <Content Include="Views\MulticastPosts\Index.cshtml" />
+    <Content Include="Views\GroupMessages\Create.cshtml" />
+    <Content Include="Views\GroupMessages\Delete.cshtml" />
+    <Content Include="Views\GroupMessages\Details.cshtml" />
+    <Content Include="Views\GroupMessages\Edit.cshtml" />
+    <Content Include="Views\GroupMessages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -350,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510181953175_Strength213.resx">
       <DependentUpon>201510181953175_Strength213.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510191829016_brick.resx">
+      <DependentUpon>201510191829016_brick.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

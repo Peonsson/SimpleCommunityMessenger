@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace SimpleCommunityMessager.Models
 {
-    public class MulticastPost
+    public class GroupMessage
     {
         public int Id { get; set; }
         public string Subject { get; set; }
@@ -15,9 +15,9 @@ namespace SimpleCommunityMessager.Models
         public virtual ApplicationUser Sender { get; set; }
     }
 
-    public class MulticastPostDBContext : DbContext
+    public class GroupMessageDBContext : DbContext
     {
-        public DbSet<MulticastPost> MulticastPosts { get; set; }
+        public DbSet<GroupMessage> GroupMessages { get; set; }
     }
 }
 

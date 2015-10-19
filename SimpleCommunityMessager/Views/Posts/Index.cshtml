@@ -1,4 +1,4 @@
-﻿@model SimpleCommunityMessager.Models.UserPostsDTO
+﻿@model SimpleCommunityMessager.Models.ReceivedPostsOverviewViewModel
 
 @{
     ViewBag.Title = "Read";
@@ -13,7 +13,7 @@
         </th>
     </tr>
 
-@foreach (var item in Model.usernames) {
+@foreach (var item in Model.Usernames) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item)
@@ -28,10 +28,10 @@
 
 <div>
     <p>
-        <b>Total messages:</b> @Model.totalMessages <br />
+        <b>Total messages:</b> @Model.TotalMessages <br />
 
-        <b>Total unread messages:</b> @Model.unreadMessages<br />
+        <b>Total unread messages:</b> @Model.ReadMessages<br />
 
-        <b>Total deleted messages:</b> @Model.deletedMessages<br />
+        <b>Total deleted messages:</b> @Model.DeletedMessages<br />
     </p>
 </div>

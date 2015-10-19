@@ -19,7 +19,7 @@ namespace SimpleCommunityMessager.Controllers
         // GET: MulticastPosts
         public ActionResult Index()
         {
-            return View(db.MulticastPosts.ToList());
+            return View(db.GroupMessages.ToList());
         }
 
         // GET: MulticastPosts/Details/5
@@ -29,14 +29,14 @@ namespace SimpleCommunityMessager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MulticastPost multicastPost = db.MulticastPosts.Find(id);
+            GroupMessage multicastPost = db.GroupMessages.Find(id);
             if (multicastPost == null)
             {
                 return HttpNotFound();
             }
 
             // Create view model
-            ReadMulticastPostDTO post = new ReadMulticastPostDTO();
+            GroupMessageViewModel post = new GroupMessageViewModel();
             post.Id = multicastPost.Id;
             post.Subject = multicastPost.Subject;
             post.Timestamp = multicastPost.Timestamp;
@@ -63,13 +63,13 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Subject,Message,ReceiverGroup")] CreateMulticastPostDTO newMcp)
+        public ActionResult Create([Bind(Include = "Subject,Message,ReceiverGroup")] CreateGroupMessageViewModel newMcp)
         {
             Debug.WriteLine("id = " + newMcp.ReceiverGroup);
 
             if (ModelState.IsValid)
             {
-                MulticastPost newPost = new MulticastPost();
+                GroupMessage newPost = new GroupMessage();
 
                 newPost.Subject = newMcp.Subject;
 
@@ -81,7 +81,7 @@ namespace SimpleCommunityMessager.Controllers
 
                 newPost.Timestamp = DateTime.Now;
 
-                db.MulticastPosts.Add(newPost);
+                db.GroupMessages.Add(newPost);
                 db.SaveChanges();
                 return RedirectToAction("Details/" + newMcp.ReceiverGroup, "Groups");
             }
@@ -96,7 +96,7 @@ namespace SimpleCommunityMessager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MulticastPost multicastPost = db.MulticastPosts.Find(id);
+            GroupMessage multicastPost = db.GroupMessages.Find(id);
             if (multicastPost == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Subject,Message,Timestamp,Deleted")] MulticastPost multicastPost)
+        public ActionResult Edit([Bind(Include = "Id,Subject,Message,Timestamp,Deleted")] GroupMessage multicastPost)
         {
             if (ModelState.IsValid)
             {
@@ -127,7 +127,7 @@ namespace SimpleCommunityMessager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MulticastPost multicastPost = db.MulticastPosts.Find(id);
+            GroupMessage multicastPost = db.GroupMessages.Find(id);
             if (multicastPost == null)
             {
                 return HttpNotFound();
@@ -140,8 +140,8 @@ namespace SimpleCommunityMessager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MulticastPost multicastPost = db.MulticastPosts.Find(id);
-            db.MulticastPosts.Remove(multicastPost);
+            GroupMessage multicastPost = db.GroupMessages.Find(id);
+            db.GroupMessages.Remove(multicastPost);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

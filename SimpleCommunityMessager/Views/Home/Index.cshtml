@@ -1,4 +1,4 @@
-﻿@model SimpleCommunityMessager.Models.IndexDTO
+﻿@model SimpleCommunityMessager.Models.AccountSummaryViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -13,31 +13,31 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.userName)
+                @Html.DisplayNameFor(model => model.Username)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.lastLogin)
+                @Html.DisplayNameFor(model => model.LastLogin)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.loginCounter)
+                @Html.DisplayNameFor(model => model.LoginCounter)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.unreadCounter)
+                @Html.DisplayNameFor(model => model.UnreadCounter)
             </th>
         </tr>
 
         <tr>
             <td>
-                @Html.DisplayFor(model => model.userName)
+                @Html.DisplayFor(model => model.Username)
             </td>
             <td>
-                @Html.DisplayFor(model => model.lastLogin)
+                @Html.DisplayFor(model => model.LastLogin)
             </td>
             <td>
-                @Html.DisplayFor(model => model.loginCounter)
+                @Html.DisplayFor(model => model.LoginCounter)
             </td>
             <td>
-                @Html.DisplayFor(model => model.unreadCounter)
+                @Html.DisplayFor(model => model.UnreadCounter)
             </td>
         </tr>
     </table>
