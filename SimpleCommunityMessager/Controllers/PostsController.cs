@@ -177,8 +177,13 @@ namespace SimpleCommunityMessager.Controllers
 
                         var CurrentUser = db.Users.Find(User.Identity.GetUserId());
                         newPost.Sender = CurrentUser;
-
                         var receiver = db.Users.Where(u => u.UserName == part).FirstOrDefault();
+
+                        if(receiver == null)
+                        {
+                            continue;
+                        }
+
                         newPost.Receiver = receiver;
 
                         db.Posts.Add(newPost);
