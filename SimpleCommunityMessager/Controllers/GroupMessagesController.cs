@@ -9,6 +9,7 @@ using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
+    [Authorize]
     public class GroupMessagesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

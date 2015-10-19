@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace SimpleCommunityMessager.Controllers
 {
+    [Authorize]
     public class GroupsController : Controller
     {
         //private GroupDBContext db = new GroupDBContext();
