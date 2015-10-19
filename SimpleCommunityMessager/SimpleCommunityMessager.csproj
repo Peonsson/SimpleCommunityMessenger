@@ -229,6 +229,7 @@
     <Compile Include="Models\IndexDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MulticastPost.cs" />
+    <Compile Include="Models\MulticastPostDTO.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\ReadMulticastPostDTO.cs" />
     <Compile Include="Models\ReadPostDTO.cs" />
@@ -308,6 +309,7 @@
     <Content Include="Views\MulticastPosts\Details.cshtml" />
     <Content Include="Views\MulticastPosts\Edit.cshtml" />
     <Content Include="Views\MulticastPosts\Index.cshtml" />
+    <Content Include="Views\Posts\CreateMulticast.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
