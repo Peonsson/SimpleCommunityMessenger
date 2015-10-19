@@ -12,7 +12,7 @@ using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
-    public class MulticastPostsController : Controller
+    public class GroupMessagesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

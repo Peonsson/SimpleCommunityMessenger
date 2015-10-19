@@ -171,7 +171,7 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MulticastPostsController.cs" />
+    <Compile Include="Controllers\GroupMessagesController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,22 +218,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CreateMulticastPostDTO.cs" />
-    <Compile Include="Models\CreatePostDTO.cs" />
     <Compile Include="Models\Group.cs" />
-    <Compile Include="Models\GroupDetailMessagesDTO.cs" />
-    <Compile Include="Models\GroupDetailsDTO.cs" />
-    <Compile Include="Models\GroupDTO.cs" />
+    <Compile Include="Models\GroupMessage.cs" />
+    <Compile Include="Models\GroupMessageViewModels.cs" />
     <Compile Include="Models\GroupUser.cs" />
+    <Compile Include="Models\GroupViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\IndexDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MulticastPost.cs" />
+    <Compile Include="Models\MulticastPostDTO.cs" />
     <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\ReadMulticastPostDTO.cs" />
-    <Compile Include="Models\ReadPostDTO.cs" />
-    <Compile Include="Models\ReadPostsFromUserDTO.cs" />
-    <Compile Include="Models\UserPostsDTO.cs" />
+    <Compile Include="Models\PostViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -308,6 +302,12 @@
     <Content Include="Views\MulticastPosts\Details.cshtml" />
     <Content Include="Views\MulticastPosts\Edit.cshtml" />
     <Content Include="Views\MulticastPosts\Index.cshtml" />
+    <Content Include="Views\Posts\CreateMulticast.cshtml" />
+    <Content Include="Views\GroupMessages\Create.cshtml" />
+    <Content Include="Views\GroupMessages\Delete.cshtml" />
+    <Content Include="Views\GroupMessages\Details.cshtml" />
+    <Content Include="Views\GroupMessages\Edit.cshtml" />
+    <Content Include="Views\GroupMessages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,12 +25,12 @@ namespace SimpleCommunityMessager.Controllers
 
             List<Group> groupList = db.Groups.ToList();
             List<GroupUser> groupUserlist = db.GroupUsers.Where(g => g.User.Id == currentUser.Id).ToList();
-            List<GroupDTO> groupsDTO = new List<GroupDTO>();
+            List<GroupListViewModel> groupsDTO = new List<GroupListViewModel>();
 
             foreach (var item in groupList) //för alla grupper 
             {
 
-                GroupDTO dto = new GroupDTO();
+                GroupListViewModel dto = new GroupListViewModel();
                 dto.Member = false;
                 dto.Id = item.Id;
                 dto.Name = item.Name;
@@ -58,16 +58,16 @@ namespace SimpleCommunityMessager.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            GroupDetailsDTO dto = new GroupDetailsDTO();
+            ReceivedGroupPostSummaryViewModel dto = new ReceivedGroupPostSummaryViewModel();
             dto.Id = (int) id;
 
-            List<MulticastPost> mcp = db.MulticastPosts.Where(p => p.Group.Id == id).ToList();
+            List<GroupMessage> mcp = db.GroupMessages.Where(p => p.Group.Id == id).ToList();
 
 
-            List<GroupDetailMessagesDTO> dtoList = new List<GroupDetailMessagesDTO>();
-            foreach (MulticastPost item in mcp)
+            List<ReceivedGroupPostBriefViewModel> dtoList = new List<ReceivedGroupPostBriefViewModel>();
+            foreach (GroupMessage item in mcp)
             {
-                GroupDetailMessagesDTO messageDetails = new GroupDetailMessagesDTO();
+                ReceivedGroupPostBriefViewModel messageDetails = new ReceivedGroupPostBriefViewModel();
 
                 messageDetails.Id = item.Id;
                 messageDetails.Subject = item.Subject;

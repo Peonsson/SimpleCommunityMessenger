@@ -11,6 +11,7 @@ namespace SimpleCommunityMessager.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Member { get; set; }
     }
 
     // Shows the summary of messages sent to a group

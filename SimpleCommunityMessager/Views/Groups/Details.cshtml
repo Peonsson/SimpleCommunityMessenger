@@ -1,4 +1,4 @@
-﻿@model SimpleCommunityMessager.Models.ReceivedGroupPostBriefViewModel
+﻿@model SimpleCommunityMessager.Models.ReceivedGroupPostSummaryViewModel
 
 @{
     ViewBag.Title = "Messages";
@@ -7,7 +7,7 @@
 <h2>Messages</h2>
 
 <p>
-    @Html.ActionLink("New message", "Create", "MulticastPosts", new { id = Model.Id }, null)
+    @Html.ActionLink("New message", "Create", "GroupMessages", new { id = Model.Id }, null)
 </p>
 
 
@@ -32,7 +32,7 @@
                     @Html.DisplayFor(modelItem => item.Timestamp)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "MulticastPosts", new { id = item.Id }, null)
+                    @Html.ActionLink("Details", "Details", "GroupMessages", new { id = item.Id }, null)
                 </td>
             </tr>
         }
