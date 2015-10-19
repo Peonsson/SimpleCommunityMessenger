@@ -1,5 +1,4 @@
-﻿using SimpleCommunityMessager.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 

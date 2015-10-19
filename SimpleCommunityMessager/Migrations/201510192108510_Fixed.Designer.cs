@@ -7,13 +7,13 @@ namespace SimpleCommunityMessager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updated_model_attributes3 : IMigrationMetadata
+    public sealed partial class Fixed : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updated_model_attributes3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Fixed));
         
         string IMigrationMetadata.Id
         {
-            get { return "201510192028162_updated_model_attributes3"; }
+            get { return "201510192108510_Fixed"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -24,7 +23,7 @@ namespace SimpleCommunityMessager.Models
         public DateTime LastLogin { get; set; }
         public int LoginCounter { get; set; }
 
-        // Navigation property
+        // Navigation properties
         public virtual ICollection<Group> Groups { get; set; }
         public virtual ICollection<GroupUser> GroupUser { get; set; }
         public virtual ICollection<Post> Posts { get; set; }

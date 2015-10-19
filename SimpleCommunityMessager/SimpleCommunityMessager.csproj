@@ -176,61 +176,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510171558496_LastLogin.cs" />
-    <Compile Include="Migrations\201510171558496_LastLogin.Designer.cs">
-      <DependentUpon>201510171558496_LastLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510171620575_AllowNull.cs" />
-    <Compile Include="Migrations\201510171620575_AllowNull.Designer.cs">
-      <DependentUpon>201510171620575_AllowNull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510171625385_DontAllowNull.cs" />
-    <Compile Include="Migrations\201510171625385_DontAllowNull.Designer.cs">
-      <DependentUpon>201510171625385_DontAllowNull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510171710516_ContextChange.cs" />
-    <Compile Include="Migrations\201510171710516_ContextChange.Designer.cs">
-      <DependentUpon>201510171710516_ContextChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510181741422_Groups.cs" />
-    <Compile Include="Migrations\201510181741422_Groups.Designer.cs">
-      <DependentUpon>201510181741422_Groups.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510181744332_Groups2.cs" />
-    <Compile Include="Migrations\201510181744332_Groups2.Designer.cs">
-      <DependentUpon>201510181744332_Groups2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510181751461_Groups3.cs" />
-    <Compile Include="Migrations\201510181751461_Groups3.Designer.cs">
-      <DependentUpon>201510181751461_Groups3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510181835409_dance.cs" />
-    <Compile Include="Migrations\201510181835409_dance.Designer.cs">
-      <DependentUpon>201510181835409_dance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510181938189_Strength.cs" />
-    <Compile Include="Migrations\201510181938189_Strength.Designer.cs">
-      <DependentUpon>201510181938189_Strength.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510181953175_Strength213.cs" />
-    <Compile Include="Migrations\201510181953175_Strength213.Designer.cs">
-      <DependentUpon>201510181953175_Strength213.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510191909271_asd.cs" />
-    <Compile Include="Migrations\201510191909271_asd.Designer.cs">
-      <DependentUpon>201510191909271_asd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510192028162_updated_model_attributes3.cs" />
-    <Compile Include="Migrations\201510192028162_updated_model_attributes3.Designer.cs">
-      <DependentUpon>201510192028162_updated_model_attributes3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510192038223_updated_model_attributes5.cs" />
-    <Compile Include="Migrations\201510192038223_updated_model_attributes5.Designer.cs">
-      <DependentUpon>201510192038223_updated_model_attributes5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510192055085_updated_model_attributes6.cs" />
-    <Compile Include="Migrations\201510192055085_updated_model_attributes6.Designer.cs">
-      <DependentUpon>201510192055085_updated_model_attributes6.cs</DependentUpon>
+    <Compile Include="Migrations\201510192108510_Fixed.cs" />
+    <Compile Include="Migrations\201510192108510_Fixed.Designer.cs">
+      <DependentUpon>201510192108510_Fixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -323,47 +271,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510171558496_LastLogin.resx">
-      <DependentUpon>201510171558496_LastLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510171620575_AllowNull.resx">
-      <DependentUpon>201510171620575_AllowNull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510171625385_DontAllowNull.resx">
-      <DependentUpon>201510171625385_DontAllowNull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510171710516_ContextChange.resx">
-      <DependentUpon>201510171710516_ContextChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510181741422_Groups.resx">
-      <DependentUpon>201510181741422_Groups.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510181744332_Groups2.resx">
-      <DependentUpon>201510181744332_Groups2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510181751461_Groups3.resx">
-      <DependentUpon>201510181751461_Groups3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510181835409_dance.resx">
-      <DependentUpon>201510181835409_dance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510181938189_Strength.resx">
-      <DependentUpon>201510181938189_Strength.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510181953175_Strength213.resx">
-      <DependentUpon>201510181953175_Strength213.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510191909271_asd.resx">
-      <DependentUpon>201510191909271_asd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510192028162_updated_model_attributes3.resx">
-      <DependentUpon>201510192028162_updated_model_attributes3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510192038223_updated_model_attributes5.resx">
-      <DependentUpon>201510192038223_updated_model_attributes5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510192055085_updated_model_attributes6.resx">
-      <DependentUpon>201510192055085_updated_model_attributes6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510192108510_Fixed.resx">
+      <DependentUpon>201510192108510_Fixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

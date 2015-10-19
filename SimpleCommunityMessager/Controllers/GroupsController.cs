@@ -4,11 +4,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using SimpleCommunityMessager.Models;
 using Microsoft.AspNet.Identity;
-using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
@@ -20,7 +18,6 @@ namespace SimpleCommunityMessager.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-
             var currentUser = db.Users.Find(User.Identity.GetUserId());
 
             List<Group> groupList = db.Groups.ToList();

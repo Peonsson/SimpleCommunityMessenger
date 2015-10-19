@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using SimpleCommunityMessager.Models;
 using Microsoft.AspNet.Identity;
@@ -16,36 +13,36 @@ namespace SimpleCommunityMessager.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: MulticastPosts
+        // GET: GroupMessages
         public ActionResult Index()
         {
             return View(db.GroupMessages.ToList());
         }
 
-        // GET: MulticastPosts/Details/5
+        // GET: GroupMessages/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GroupMessage multicastPost = db.GroupMessages.Find(id);
-            if (multicastPost == null)
+            GroupMessage groupMessage = db.GroupMessages.Find(id);
+            if (groupMessage == null)
             {
                 return HttpNotFound();
             }
 
             // Create view model
             GroupMessageViewModel post = new GroupMessageViewModel();
-            post.Id = multicastPost.Id;
-            post.Subject = multicastPost.Subject;
-            post.Timestamp = multicastPost.Timestamp;
-            post.Message = multicastPost.Message;
+            post.Id = groupMessage.Id;
+            post.Subject = groupMessage.Subject;
+            post.Timestamp = groupMessage.Timestamp;
+            post.Message = groupMessage.Message;
 
             return View(post);
         }
 
-        // GET: MulticastPosts/Create
+        // GET: GroupMessages/Create
         public ActionResult Create(int? id)
         {
             if (id == null)
@@ -58,7 +55,7 @@ namespace SimpleCommunityMessager.Controllers
             return View();
         }
 
-        // POST: MulticastPosts/Create
+        // POST: GroupMessages/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -83,6 +80,7 @@ namespace SimpleCommunityMessager.Controllers
 
                 db.GroupMessages.Add(newPost);
                 db.SaveChanges();
+
                 return RedirectToAction("Details/" + newMcp.ReceiverGroup, "Groups");
             }
 

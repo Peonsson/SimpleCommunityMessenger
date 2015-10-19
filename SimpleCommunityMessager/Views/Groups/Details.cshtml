@@ -10,12 +10,11 @@
     @Html.ActionLink("New message", "Create", "GroupMessages", new { id = Model.Id }, null)
 </p>
 
-
 <div>
     <table class="table">
         <tr>
             <th>
-                Subject
+                @Html.DisplayNameFor(Model => Model.messages)
             </th>
             <th>
                 Timestamp

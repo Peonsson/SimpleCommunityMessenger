@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace SimpleCommunityMessager.Models
 {
-
     // For showing a list all groups
     public class GroupListViewModel
     {
@@ -28,6 +25,7 @@ namespace SimpleCommunityMessager.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Subject")]
         public List<ReceivedGroupPostBriefViewModel> messages { get; set; }
     }
 
@@ -49,7 +47,6 @@ namespace SimpleCommunityMessager.Models
     // Used to create a group
     public class CreateGroupViewModel
     {
-
         [Required]
         [StringLength(128, MinimumLength = 2, ErrorMessage = "The {0} must be atleast {2} characters long.")]
         [Display(Name = "Name")]

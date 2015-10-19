@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using SimpleCommunityMessager.Models;
 using Microsoft.AspNet.Identity;
-using System.Diagnostics;
 
 namespace SimpleCommunityMessager.Controllers
 {
@@ -23,7 +21,7 @@ namespace SimpleCommunityMessager.Controllers
             ReceivedPostsOverviewViewModel dto = new ReceivedPostsOverviewViewModel();
 
             dto.Usernames = db.Posts.Where(p => p.Receiver.Id == CurrentUser.Id && p.Deleted == false).Select(p => p.Sender.UserName).Distinct().ToList();
-
+            
             dto.TotalMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id);
 
             dto.ReadMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Read == true);
@@ -31,7 +29,6 @@ namespace SimpleCommunityMessager.Controllers
             dto.DeletedMessages = db.Posts.Count(t => t.Receiver.Id == CurrentUser.Id && t.Deleted == true);
 
             return View(dto);
-
         }
 
         // GET: Posts/Details/5
@@ -47,7 +44,6 @@ namespace SimpleCommunityMessager.Controllers
             var CurrentUser = db.Users.Find(User.Identity.GetUserId());
 
             List<Post> posts = db.Posts.Where(p => p.Sender.UserName == username && p.Receiver.Id == CurrentUser.Id && p.Deleted == false).ToList();
-
             foreach(var item in posts)
             {
                 ReceivedPostSummaryViewModel dto = new ReceivedPostSummaryViewModel();

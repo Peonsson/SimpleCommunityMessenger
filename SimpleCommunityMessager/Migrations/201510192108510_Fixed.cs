@@ -3,7 +3,7 @@ namespace SimpleCommunityMessager.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class updated_model_attributes3 : DbMigration
+    public partial class Fixed : DbMigration
     {
         public override void Up()
         {
