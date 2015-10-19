@@ -70,13 +70,9 @@ namespace SimpleCommunityMessager.Controllers
                 GroupMessage newPost = new GroupMessage();
 
                 newPost.Subject = newMcp.Subject;
-
                 newPost.Message = newMcp.Message;
-
                 newPost.Sender = db.Users.Find(User.Identity.GetUserId());
-
                 newPost.Group = db.Groups.Where(u => u.Id == newMcp.ReceiverGroup).FirstOrDefault();
-
                 newPost.Timestamp = DateTime.Now;
 
                 db.GroupMessages.Add(newPost);

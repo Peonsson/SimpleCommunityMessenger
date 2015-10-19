@@ -25,6 +25,7 @@ namespace SimpleCommunityMessager.Controllers
             List<GroupUser> groupUserlist = db.GroupUsers.Where(g => g.User.Id == currentUser.Id).ToList();
             List<GroupListViewModel> groupsDTO = new List<GroupListViewModel>();
 
+            // Run through all groups
             foreach (var item in groupList)
             {
                 GroupListViewModel dto = new GroupListViewModel();
@@ -32,10 +33,12 @@ namespace SimpleCommunityMessager.Controllers
                 dto.Id = item.Id;
                 dto.Name = item.Name;
 
+                // To check if user is a member of the group
                 foreach (var item2 in groupUserlist)
                 {
                     if (item.Id.Equals(item2.Group.Id))
                     {
+                        // Mark as member
                         dto.Member = true;
                     }
                 }
