@@ -298,7 +298,6 @@
     <Content Include="Views\Posts\CreateMulticast.cshtml" />
     <Content Include="Views\GroupMessages\Create.cshtml" />
     <Content Include="Views\GroupMessages\Details.cshtml" />
-    <Content Include="Views\GroupMessages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

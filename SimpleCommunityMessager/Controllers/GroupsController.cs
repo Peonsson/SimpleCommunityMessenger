@@ -87,16 +87,18 @@ namespace SimpleCommunityMessager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Group group)
+        public ActionResult Create([Bind(Include = "Id,Name")] CreateGroupViewModel newGroup)
         {
             if (ModelState.IsValid)
             {
+                Group group = new Group();
+                group.Name = newGroup.Name;
                 db.Groups.Add(group);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(group);
+            return View(newGroup);
         }
 
         // GET: Groups/Join/5

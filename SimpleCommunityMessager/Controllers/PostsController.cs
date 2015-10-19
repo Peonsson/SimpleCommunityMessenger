@@ -141,7 +141,7 @@ namespace SimpleCommunityMessager.Controllers
                 return RedirectToAction("Create");
             }
 
-            return View();
+            return View(post);
         }
 
         // GET: Posts/CreateMulticast
@@ -201,12 +201,21 @@ namespace SimpleCommunityMessager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Post post = db.Posts.Find(id);
+
+            ReceivedPostDetailsViewModel returnPost = new ReceivedPostDetailsViewModel();
+
+            returnPost.Id = post.Id;
+            returnPost.Message = post.Message;
+            returnPost.Subject = post.Subject;
+            returnPost.Timestamp = post.Timestamp;
+
             if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(post);
+            return View(returnPost);
         }
 
         // POST: Posts/Delete/5
