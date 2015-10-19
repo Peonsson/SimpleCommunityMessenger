@@ -27,21 +27,18 @@ namespace SimpleCommunityMessager.Controllers
             List<GroupUser> groupUserlist = db.GroupUsers.Where(g => g.User.Id == currentUser.Id).ToList();
             List<GroupListViewModel> groupsDTO = new List<GroupListViewModel>();
 
-            foreach (var item in groupList) //för alla grupper 
+            foreach (var item in groupList)
             {
-
                 GroupListViewModel dto = new GroupListViewModel();
                 dto.Member = false;
                 dto.Id = item.Id;
                 dto.Name = item.Name;
 
-                foreach (var item2 in groupUserlist) //om vi är med i gruppen
+                foreach (var item2 in groupUserlist)
                 {
                     if (item.Id.Equals(item2.Group.Id))
                     {
-
                         dto.Member = true;
-
                     }
                 }
                 groupsDTO.Add(dto);
@@ -62,7 +59,6 @@ namespace SimpleCommunityMessager.Controllers
             dto.Id = (int) id;
 
             List<GroupMessage> mcp = db.GroupMessages.Where(p => p.Group.Id == id).ToList();
-
 
             List<ReceivedGroupPostBriefViewModel> dtoList = new List<ReceivedGroupPostBriefViewModel>();
             foreach (GroupMessage item in mcp)
@@ -102,43 +98,6 @@ namespace SimpleCommunityMessager.Controllers
 
             return View(group);
         }
-
-        // GET: Groups/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
-        }
-
-        // POST: Groups/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Group group)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(group).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(group);
-        }
-
-
-        /* IN PRODUCTION */
-        /* IN PRODUCTION */
-        /* IN PRODUCTION */
-
 
         // GET: Groups/Join/5
         public ActionResult Join(int? id)
@@ -235,40 +194,6 @@ namespace SimpleCommunityMessager.Controllers
                 return RedirectToAction("Index");
             }
             return View(group);
-        }
-
-
-
-        /* END */
-        /* END */
-        /* END */
-
-
-
-        // GET: Groups/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
-        }
-
-        // POST: Groups/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Group group = db.Groups.Find(id);
-            db.Groups.Remove(group);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

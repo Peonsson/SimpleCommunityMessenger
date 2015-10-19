@@ -51,7 +51,6 @@ namespace SimpleCommunityMessager.Controllers
             }
         }
 
-        //TODO: change to best practice. -Robin
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -73,7 +72,6 @@ namespace SimpleCommunityMessager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            Debug.WriteLine("HELLLO");
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -85,7 +83,6 @@ namespace SimpleCommunityMessager.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    Debug.WriteLine("SUCCESS");
                     // Change last login date and number of logins (on current month) for user who logged in
                     using (var db = new ApplicationDbContext())
                     {

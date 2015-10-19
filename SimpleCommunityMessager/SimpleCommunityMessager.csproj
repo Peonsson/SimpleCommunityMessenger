@@ -290,19 +290,14 @@
     <Content Include="Views\Posts\Create.cshtml" />
     <Content Include="Views\Posts\Delete.cshtml" />
     <Content Include="Views\Posts\Details.cshtml" />
-    <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\Posts\MessageDetails.cshtml" />
     <Content Include="Views\Groups\Create.cshtml" />
-    <Content Include="Views\Groups\Delete.cshtml" />
     <Content Include="Views\Groups\Details.cshtml" />
-    <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
     <Content Include="Views\Posts\CreateMulticast.cshtml" />
     <Content Include="Views\GroupMessages\Create.cshtml" />
-    <Content Include="Views\GroupMessages\Delete.cshtml" />
     <Content Include="Views\GroupMessages\Details.cshtml" />
-    <Content Include="Views\GroupMessages\Edit.cshtml" />
     <Content Include="Views\GroupMessages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

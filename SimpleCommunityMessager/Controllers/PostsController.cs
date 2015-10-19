@@ -144,7 +144,6 @@ namespace SimpleCommunityMessager.Controllers
             return View();
         }
 
-
         // GET: Posts/CreateMulticast
         public ActionResult CreateMulticast()
         {
@@ -195,38 +194,6 @@ namespace SimpleCommunityMessager.Controllers
             return View();
         }
 
-
-        // GET: Posts/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Post post = db.Posts.Find(id);
-            if (post == null)
-            {
-                return HttpNotFound();
-            }
-            return View(post);
-        }
-
-        // POST: Posts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Subject,Message,Timestamp,Read,Deleted")] Post post)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(post).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(post);
-        }
-
         // GET: Posts/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -248,8 +215,6 @@ namespace SimpleCommunityMessager.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);
-
-            //db.Posts.Remove(post);
 
             post.Read = true;
             post.Deleted = true;
