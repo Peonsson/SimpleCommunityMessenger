@@ -144,64 +144,6 @@ namespace SimpleCommunityMessager.Controllers
             return View();
         }
 
-
-        /* IN PRODUCTION */
-        /* IN PRODUCTION */
-        /* IN PRODUCTION */
-
-
-        // GET: Posts/CreateMulticast
-        public ActionResult CreateMulticast()
-        {
-            return View();
-        }
-
-        // POST: Posts/CreateMulticast
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateMulticast([Bind(Include = "Subject,Message,Receivers")] MulticastPostDTO post)
-        {
-            if (ModelState.IsValid)
-            {
-
-                string[] parts = post.Receivers.Split(' ');
-
-                if(parts.Length > 0)
-                {
-                    foreach(string part in parts)
-                    {
-                        Post newPost = new Post();
-
-                        newPost.Subject = post.Subject;
-                        newPost.Message = post.Message;
-                        newPost.Timestamp = DateTime.Now;
-                        newPost.Read = false;
-                        newPost.Deleted = false;
-
-                        var CurrentUser = db.Users.Find(User.Identity.GetUserId());
-                        newPost.Sender = CurrentUser;
-
-                        var receiver = db.Users.Where(u => u.UserName == part).FirstOrDefault();
-                        newPost.Receiver = receiver;
-
-                        db.Posts.Add(newPost);
-                    }
-                    db.SaveChanges();
-                    return RedirectToAction("Create");
-                }
-            }
-            return View();
-        }
-
-
-        /* END */
-        /* END */
-        /* END */
-
-
-
         // GET: Posts/Edit/5
         public ActionResult Edit(int? id)
         {
