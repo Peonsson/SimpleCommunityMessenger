@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Database classes">
+    <Position X="12.031" Y="3.813" Height="0.291" Width="1.158" />
+  </Comment>
+  <Comment CommentText="Context classes">
+    <Position X="11.979" Y="0.802" Height="0.291" Width="1.075" />
+  </Comment>
+  <Comment CommentText="Controller classes">
+    <Position X="5.188" Y="1.385" Height="0.323" Width="1.169" />
+  </Comment>
+  <Comment CommentText="View Model classes">
+    <Position X="4.24" Y="3.281" Height="0.292" Width="1.294" />
+  </Comment>
   <Class Name="SimpleCommunityMessager.Controllers.GroupMessagesController" Collapsed="true">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -11,7 +23,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SimpleCommunityMessager.Controllers.GroupsController" Collapsed="true">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACARAAgAAAAAAAAAAAEAAEAAAAEAAAAAAAA=</HashCode>
       <FileName>Controllers\GroupsController.cs</FileName>
@@ -31,7 +43,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SimpleCommunityMessager.Controllers.PostsController" Collapsed="true">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAACARAACAAAAAAAAAAAEAAEAAgAEAAAAAAAA=</HashCode>
       <FileName>Controllers\PostsController.cs</FileName>
@@ -41,14 +53,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.AccountSummaryViewModel" Collapsed="true">
-    <Position X="2.25" Y="2.75" Width="2.25" />
+    <Position X="2.25" Y="3.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIACAAAAAQAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.Group" Collapsed="true">
-    <Position X="11" Y="4.5" Width="1.5" />
+    <Position X="11" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Group.cs</FileName>
@@ -62,98 +74,98 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupMessage" Collapsed="true">
-    <Position X="11" Y="5.25" Width="1.5" />
+    <Position X="11" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEAAAAAAAAAAAIACEAAAAAAAAAAAAAAAIAAIAAA=</HashCode>
       <FileName>Models\GroupMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupMessageDBContext" Collapsed="true">
-    <Position X="12.5" Y="2.25" Width="2" />
+    <Position X="13" Y="2.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Models\GroupMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupMessageViewModel" Collapsed="true">
-    <Position X="4" Y="5.5" Width="2" />
+    <Position X="3.75" Y="5.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAIACAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Models\GroupMessageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.CreateGroupMessageViewModel" Collapsed="true">
-    <Position X="6.25" Y="5.5" Width="2.5" />
+    <Position X="6" Y="5.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Models\GroupMessageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupUser" Collapsed="true">
-    <Position X="12.75" Y="4" Width="1.5" />
+    <Position X="12.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAADAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GroupUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupUserDBContext" Collapsed="true">
-    <Position X="10.5" Y="2.25" Width="1.75" />
+    <Position X="11" Y="2.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GroupUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupListViewModel" Collapsed="true">
-    <Position X="4" Y="4.75" Width="1.75" />
+    <Position X="3.75" Y="4.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GroupViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.ReceivedGroupPostSummaryViewModel" Collapsed="true">
-    <Position X="7" Y="6.25" Width="3" />
+    <Position X="6.75" Y="6.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Models\GroupViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.ReceivedGroupPostBriefViewModel" Collapsed="true">
-    <Position X="4" Y="6.25" Width="2.75" />
+    <Position X="3.75" Y="6.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAIACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GroupViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.CreateGroupViewModel" Collapsed="true">
-    <Position X="6" Y="4.75" Width="2" />
+    <Position X="5.75" Y="4.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GroupViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.ApplicationUser" Collapsed="true">
-    <Position X="12.75" Y="4.75" Width="1.5" />
+    <Position X="12.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAACAACAAAABAAAAAAAAAAAAAAAAkAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.ApplicationDbContext" Collapsed="true">
-    <Position X="5" Y="2" Width="1.5" />
+    <Position X="9.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAACAAAABAAAAAAAAAAAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.IndexViewModel" Collapsed="true">
-    <Position X="0.5" Y="2.75" Width="1.5" />
+    <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAAAAQAAAEAEA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.Post" Collapsed="true">
-    <Position X="11" Y="3.75" Width="1.5" />
+    <Position X="11" Y="4.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
@@ -170,7 +182,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.CreateNewPostViewModel" Collapsed="true">
-    <Position X="3.5" Y="3.5" Width="2" />
+    <Position X="7.75" Y="3.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAEAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Models\PostViewModels.cs</FileName>
@@ -198,7 +210,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.CreateNewMulticastPostViewModel" Collapsed="true">
-    <Position X="0.5" Y="3.5" Width="2.75" />
+    <Position X="4.75" Y="3.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAEAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Models\PostViewModels.cs</FileName>
