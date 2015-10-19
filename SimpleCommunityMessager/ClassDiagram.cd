@@ -7,13 +7,13 @@
     <Position X="11.979" Y="0.802" Height="0.291" Width="1.075" />
   </Comment>
   <Comment CommentText="Controller classes">
-    <Position X="5.188" Y="1.385" Height="0.323" Width="1.169" />
+    <Position X="5.083" Y="1.323" Height="0.323" Width="1.169" />
   </Comment>
   <Comment CommentText="View Model classes">
     <Position X="4.24" Y="3.281" Height="0.292" Width="1.294" />
   </Comment>
   <Class Name="SimpleCommunityMessager.Controllers.GroupMessagesController" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAARAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAA=</HashCode>
       <FileName>Controllers\GroupMessagesController.cs</FileName>
@@ -33,7 +33,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SimpleCommunityMessager.Controllers.HomeController" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Controllers\HomeController.cs</FileName>
@@ -67,7 +67,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupDBContext" Collapsed="true">
-    <Position X="10.75" Y="1.25" Width="1.5" />
+    <Position X="11.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Group.cs</FileName>
@@ -81,7 +81,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupMessageDBContext" Collapsed="true">
-    <Position X="13" Y="2.25" Width="2" />
+    <Position X="12.5" Y="2.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Models\GroupMessage.cs</FileName>
@@ -109,7 +109,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.GroupUserDBContext" Collapsed="true">
-    <Position X="11" Y="2.25" Width="1.75" />
+    <Position X="9.75" Y="1.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GroupUser.cs</FileName>
@@ -151,7 +151,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.ApplicationDbContext" Collapsed="true">
-    <Position X="9.25" Y="2" Width="1.5" />
+    <Position X="10.5" Y="2.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAACAAAABAAAAAAAAAAAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
@@ -175,7 +175,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleCommunityMessager.Models.PostDBContext" Collapsed="true">
-    <Position X="12.5" Y="1.25" Width="1.5" />
+    <Position X="13.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Post.cs</FileName>
