@@ -220,6 +220,18 @@
     <Compile Include="Migrations\201510191909271_asd.Designer.cs">
       <DependentUpon>201510191909271_asd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510192028162_updated_model_attributes3.cs" />
+    <Compile Include="Migrations\201510192028162_updated_model_attributes3.Designer.cs">
+      <DependentUpon>201510192028162_updated_model_attributes3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510192038223_updated_model_attributes5.cs" />
+    <Compile Include="Migrations\201510192038223_updated_model_attributes5.Designer.cs">
+      <DependentUpon>201510192038223_updated_model_attributes5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510192055085_updated_model_attributes6.cs" />
+    <Compile Include="Migrations\201510192055085_updated_model_attributes6.Designer.cs">
+      <DependentUpon>201510192055085_updated_model_attributes6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Group.cs" />
@@ -343,6 +355,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510191909271_asd.resx">
       <DependentUpon>201510191909271_asd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510192028162_updated_model_attributes3.resx">
+      <DependentUpon>201510192028162_updated_model_attributes3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510192038223_updated_model_attributes5.resx">
+      <DependentUpon>201510192038223_updated_model_attributes5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510192055085_updated_model_attributes6.resx">
+      <DependentUpon>201510192055085_updated_model_attributes6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

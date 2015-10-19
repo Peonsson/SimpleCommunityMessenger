@@ -10,8 +10,10 @@ namespace SimpleCommunityMessager.Models
     public class GroupUser
     {
         public int Id { get; set; }
+
         [Required]
         public virtual Group Group { get; set; }
+
         [Required]
         public virtual ApplicationUser User { get; set; }
     }

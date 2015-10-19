@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +11,13 @@ namespace SimpleCommunityMessager.Models
     public class GroupListViewModel
     {
         public int Id { get; set; }
+
+        [Required]
+        [StringLength(128, MinimumLength = 2, ErrorMessage = "The {0} must be atleast {2} characters long.")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
+
+        [Required]
         public bool Member { get; set; }
     }
 
@@ -19,6 +26,8 @@ namespace SimpleCommunityMessager.Models
     {
         // Group id
         public int Id { get; set; }
+
+        [Required]
         public List<ReceivedGroupPostBriefViewModel> messages { get; set; }
     }
 
@@ -26,13 +35,24 @@ namespace SimpleCommunityMessager.Models
     public class ReceivedGroupPostBriefViewModel
     {
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Received at")]
         public DateTime Timestamp { get; set; }
+
+        [Required]
+        [StringLength(128, MinimumLength = 2, ErrorMessage = "The {0} must be atleast {2} characters long.")]
+        [Display(Name = "Subject")]
         public string Subject { get; set; }
     }
 
     // Used to create a group
     public class CreateGroupViewModel
     {
+
+        [Required]
+        [StringLength(128, MinimumLength = 2, ErrorMessage = "The {0} must be atleast {2} characters long.")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
     }
 }

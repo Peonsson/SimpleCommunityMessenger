@@ -6,19 +6,22 @@ namespace SimpleCommunityMessager.Models
 {
     public class AccountSummaryViewModel
     {
-        [Display(Name = "No. unread messages")]
+        [Required]
+        [Display(Name = "Total no. of unread Messages")]
         public int UnreadCounter { get; set; }
 
+        [Required]
         [Display(Name = "Username")]
         public string Username { get; set; }
 
+        [Required]
         [Display(Name = "Last login date")]
         public DateTime LastLogin { get; set; }
 
-        [Display(Name = "No. times user have logged in")]
+        [Required]
+        [Display(Name = "Total no. of times user has logged in")]
         public int LoginCounter { get; set; }
     }
-
 
     public class ExternalLoginConfirmationViewModel
     {
@@ -81,7 +84,7 @@ namespace SimpleCommunityMessager.Models
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "The {0} must be at least {1} characters long")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "The {0} must be at least {2} characters long")]
         [Display(Name = "Username")]
         public string Username { get; set; }
 

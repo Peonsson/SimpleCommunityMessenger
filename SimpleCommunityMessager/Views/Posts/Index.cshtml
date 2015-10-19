@@ -9,7 +9,8 @@
 <table class="table">
     <tr>
         <th>
-            From
+            @Html.DisplayNameFor(ModelItem => Model.Usernames)
+
         </th>
     </tr>
 
@@ -28,10 +29,10 @@
 
 <div>
     <p>
-        <b>Total messages:</b> @Model.TotalMessages <br />
+        <b>@Html.DisplayNameFor(ModelItem => Model.TotalMessages):</b> @Model.TotalMessages <br />
 
-        <b>Total read messages:</b> @Model.ReadMessages<br />
+        <b>@Html.DisplayNameFor(ModelItem => Model.ReadMessages):</b> @Model.ReadMessages<br />
 
-        <b>Total deleted messages:</b> @Model.DeletedMessages<br />
+        <b>@Html.DisplayNameFor(ModelItem => Model.DeletedMessages):</b> @Model.DeletedMessages<br />
     </p>
 </div>
